@@ -178,13 +178,13 @@ public class PoiRead
 
     private static String getCAHandleMan(int row, String cell) {
         String handlWay;
-        if (row % 3 == 2) {
+        if (row % 5 == 2) {
             handlWay = "柏辰," + cell;
         } else {
-            if (row % 3 == 1) {
-                handlWay = "刘耀阳," + cell;
-            } else {
+            if (row % 5 == 1) {
                 handlWay = "曹津梁," + cell;
+            } else {
+                handlWay = "刘耀阳," + cell;
             }
         }
         if(cell.contains("延期")){
@@ -289,6 +289,11 @@ public class PoiRead
                                 ||cell.contains("人员信息报送获取反馈失败，金三返回的异常信息为调用接口失败")
                         ){
                             handlWay = "郝战海，重发";
+                        }else if(isCAError(cell)){
+                            handlWay = getCAHandleMan(row,cell);
+                        }
+                        else {
+                            handlWay = "郝战海，核实处理";
                         }
                     }
                     if(handlWay != ""){
@@ -474,7 +479,7 @@ public class PoiRead
         if(dq.contains("江苏")){
             handlWay = "周晗，核实处理";
         }else if(dq.contains("宁波")){
-            handlWay = "周晗，核实处理";
+            handlWay = "王峰，核实处理";
         }else if(dq.contains("上海")){
             handlWay = "王冲，核实处理";
         }else if(dq.contains("浙江")){

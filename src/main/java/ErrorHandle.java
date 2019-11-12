@@ -13,10 +13,10 @@ public class ErrorHandle {
         System.out.println(filePathDate);
 
         sberrHandle(filePathDate,filePathEnd);
-//        sberrTwoHandle(filePathDate,filePathEnd);
+        sberrTwoHandle(filePathDate,filePathEnd);
         kkerrHandle(filePathDate,filePathEnd);
         lbjcHandle(filePathDate,filePathEnd);
-//        dkfpErrHandle(filePathDate,filePathEnd);
+        fpErrHandle(filePathDate,filePathEnd);
 //        sbsjtbHandle(filePathDate,filePathEnd);
     }
 
@@ -44,7 +44,7 @@ public class ErrorHandle {
         PoiWrite.write(dataList,"D:\\异常信息\\" + filePathDate + "\\申报情况监控信息(当天解决—申报状态为申报成功)_" + filePathEnd);
     }
 
-    public static void dkfpErrHandle(String filePathDate,String filePathEnd){
+    public static void fpErrHandle(String filePathDate,String filePathEnd){
         String[] oldfileName = {"dkfperr.xls","xxfperr.xls","jxfperr.xls","tyjderr.xls"};
         String[] fileName = {"代开发票采集信息","销项发票采集信息","进项发票采集信息","通用机打发票采集信息"};
 //        String[] fileName = {"通用机打发票采集信息"};
