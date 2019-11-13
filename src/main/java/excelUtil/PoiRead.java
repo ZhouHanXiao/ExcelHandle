@@ -742,6 +742,10 @@ public class PoiRead
                 ||cell.contains("本期已缴税额不一致")
                 ||cell.contains("您的附加税也已经自动申报成功")
                 ||cell.contains("申报表比对结果不通过")
+                ||cell.contains("开具其他发票销售额比对失败")
+                ||cell.contains("逾期请至当地办税服务大厅申报")
+                ||cell.contains("没有可以选择的基金费大类")
+                ||cell.contains("应税凭证不为空")
         ){
             return true;
         }
@@ -786,6 +790,8 @@ public class PoiRead
                 || cell.contains("未获取到异常原因")
                 || cell.contains("确认平台未签名")
                 || cell.contains("9999_JSON2")
+                || cell.contains("税局页面打开失败，请稍后重新尝试")
+                || cell.contains("税局异常信息：未保存成功")
         ){
             return true;
         }

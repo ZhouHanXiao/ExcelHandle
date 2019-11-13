@@ -16,10 +16,15 @@ public class ErrorHandle {
         sberrTwoHandle(filePathDate,filePathEnd);
         kkerrHandle(filePathDate,filePathEnd);
         lbjcHandle(filePathDate,filePathEnd);
-        fpErrHandle(filePathDate,filePathEnd);
+//        fpErrHandle(filePathDate,filePathEnd);
 //        sbsjtbHandle(filePathDate,filePathEnd);
     }
 
+    /**
+     * 申报情况监控信息 处理
+     * @param filePathDate 文件夹日期命名
+     * @param filePathEnd  处理过后的文件名结尾
+     */
     public static void sberrHandle(String filePathDate,String filePathEnd){
         String oldFilePath = "D:\\异常信息\\" + filePathDate + "\\err.xls";
         List<List<String>> dataList = PoiRead.read(oldFilePath);
