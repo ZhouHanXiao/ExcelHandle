@@ -746,6 +746,7 @@ public class PoiRead
                 ||cell.contains("逾期请至当地办税服务大厅申报")
                 ||cell.contains("没有可以选择的基金费大类")
                 ||cell.contains("应税凭证不为空")
+                ||cell.contains("当前登录账号电子税务局显示企业名称")
         ){
             return true;
         }
@@ -792,6 +793,8 @@ public class PoiRead
                 || cell.contains("9999_JSON2")
                 || cell.contains("税局页面打开失败，请稍后重新尝试")
                 || cell.contains("税局异常信息：未保存成功")
+                || cell.contains("获取验证码图片失败")
+                || cell.contains("进入首页面失败")
         ){
             return true;
         }
