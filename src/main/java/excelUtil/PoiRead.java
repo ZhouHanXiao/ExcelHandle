@@ -92,6 +92,8 @@ public class PoiRead
                 if(errorFlag == "sbsjtb" && col == 9){
                     bbmc = r.getCell(3).getStringCellValue();
                     handlWay = sbsjtbread(cell,dq,row);
+                }else if(errorFlag == "kkz" && col == 0){
+                    handlWay = kkzRead(cell,dq,row);
                 }
                 rowList.add(cell);
             }
@@ -104,6 +106,10 @@ public class PoiRead
             retList.add(rowList);
         }
         return retList;
+    }
+
+    private static String kkzRead(String cell, String dq, int row) {
+
     }
 
     /**
@@ -178,10 +184,10 @@ public class PoiRead
 
     private static String getCAHandleMan(int row, String cell) {
         String handlWay;
-        if (row % 5 == 2) {
+        if (row % 3 == 2) {
             handlWay = "柏辰," + cell;
         } else {
-            if (row % 5 == 1) {
+            if (row % 3 == 1) {
                 handlWay = "曹津梁," + cell;
             } else {
                 handlWay = "刘耀阳," + cell;
@@ -314,7 +320,8 @@ public class PoiRead
                     }else if(isProgramerHandle(cell)){
                         handlWay = getErrorHanleWay(dq);
                     }else if(isProducterHandl(cell)){
-                        handlWay = getHandlWay(dq);
+//                        handlWay = getHandlWay(dq);
+                        handlWay = getErrorHanleWay(dq);
                     }else if(cell.equals("")){
                         handlWay = "赵明明，核实处理";
                     }
@@ -400,7 +407,8 @@ public class PoiRead
                     ){
                         handlWay = "周晓阳，重发";
                     }else if(isProducterHandl(cell)){
-                        handlWay = getHandlWay(dq);
+//                        handlWay = getHandlWay(dq);
+                        handlWay = getErrorHanleWay(dq);
                     }else if(isProgramerHandle(cell)){
                         handlWay = getErrorHanleWay(dq);
                     }else if(cell.equals("")){
@@ -450,7 +458,8 @@ public class PoiRead
                     }else if(isRepost(cell)){
                         handlWay = "赵明明，重发";
                     }else if(isProducterHandl(cell)){
-                        handlWay = getHandlWay(dq);
+//                        handlWay = getHandlWay(dq);
+                        handlWay = getErrorHanleWay(dq);
                     }else if(isProgramerHandle(cell)){
                         handlWay = getErrorHanleWay(dq);
                     }else if(cell.equals("")){
@@ -747,6 +756,7 @@ public class PoiRead
                 ||cell.contains("没有可以选择的基金费大类")
                 ||cell.contains("应税凭证不为空")
                 ||cell.contains("当前登录账号电子税务局显示企业名称")
+                ||cell.contains("三方协议账号为空")
         ){
             return true;
         }
