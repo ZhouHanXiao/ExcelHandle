@@ -92,8 +92,6 @@ public class PoiRead
                 if(errorFlag == "sbsjtb" && col == 9){
                     bbmc = r.getCell(3).getStringCellValue();
                     handlWay = sbsjtbread(cell,dq,row);
-                }else if(errorFlag == "kkz" && col == 0){
-                    handlWay = kkzRead(cell,dq,row);
                 }
                 rowList.add(cell);
             }
@@ -106,10 +104,6 @@ public class PoiRead
             retList.add(rowList);
         }
         return retList;
-    }
-
-    private static String kkzRead(String cell, String dq, int row) {
-
     }
 
     /**
@@ -294,12 +288,12 @@ public class PoiRead
                                 ||cell.contains("SB-E-0003-调用接口失败")
                                 ||cell.contains("人员信息报送获取反馈失败，金三返回的异常信息为调用接口失败")
                         ){
-                            handlWay = "郝战海，重发";
+                            handlWay = "老赵，重发";
                         }else if(isCAError(cell)){
                             handlWay = getCAHandleMan(row,cell);
                         }
                         else {
-                            handlWay = "郝战海，核实处理";
+                            handlWay = "老赵，核实处理";
                         }
                     }
                     if(handlWay != ""){
@@ -332,7 +326,7 @@ public class PoiRead
             }
             if(handlWay == "" && (bbmc.contains("扣缴所得税报告表")||bbmc.contains("个人所得税生产经营所得纳税申报表"))){
 //                System.out.println("handlWay = " + handlWay);
-                handlWay = "郝战海，核实处理";
+                handlWay = "老赵，核实处理";
             }
             if(row == 0){
                 rowList.add("处理方式");
@@ -392,11 +386,11 @@ public class PoiRead
                                 ||cell.contains("SB-E-0003-调用接口失败")
                                 ||cell.contains("人员信息报送获取反馈失败，金三返回的异常信息为调用接口失败")
                         ){
-                            handlWay = "郝战海，重发";
+                            handlWay = "老赵，重发";
                         }else if (isCAError(cell)){
                             handlWay = getCAHandleMan(row,cell);
                         }else {
-                            handlWay = "郝战海，核实处理";
+                            handlWay = "老赵，核实处理";
                         }
                     }else if(isCAError(cell)){
                         handlWay = getCAHandleMan(row,cell);

@@ -19,12 +19,12 @@ public class ErrorHandle {
         System.out.println(filePathDate);
 
         sberrHandle(filePathDate,filePathEnd);
-        sberrTwoHandle(filePathDate,filePathEnd);
+//        sberrTwoHandle(filePathDate,filePathEnd);
         kkerrHandle(filePathDate,filePathEnd);
-        lbjcHandle(filePathDate,filePathEnd);
-        fpErrHandle(filePathDate,filePathEnd);
-        sbsjtbHandle(filePathDate,filePathEnd);
-        kkzHandle(filePathDate,filePathEnd);
+//        lbjcHandle(filePathDate,filePathEnd);
+//        fpErrHandle(filePathDate,filePathEnd);
+//        sbsjtbHandle(filePathDate,filePathEnd);
+//        kkzHandle(filePathDate,filePathEnd);
     }
 
     /**
