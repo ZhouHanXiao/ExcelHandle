@@ -296,7 +296,7 @@ public class PoiRead
                             handlWay = getCAHandleMan(row,cell);
                         }
                         else {
-                            handlWay = "老赵，核实处理";
+                            handlWay = "郝战海，核实处理";
                         }
                     }
                     if(handlWay != ""){
