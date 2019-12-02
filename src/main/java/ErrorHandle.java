@@ -20,10 +20,10 @@ public class ErrorHandle {
 
         sberrHandle(filePathDate,filePathEnd);
 //        sberrTwoHandle(filePathDate,filePathEnd);
-        kkerrHandle(filePathDate,filePathEnd);
+//        kkerrHandle(filePathDate,filePathEnd);
 //        lbjcHandle(filePathDate,filePathEnd);
-//        fpErrHandle(filePathDate,filePathEnd);
-//        sbsjtbHandle(filePathDate,filePathEnd);
+        fpErrHandle(filePathDate,filePathEnd);
+        sbsjtbHandle(filePathDate,filePathEnd);
 //        kkzHandle(filePathDate,filePathEnd);
     }
 
