@@ -4,7 +4,6 @@
     <list default="true" id="54963862-527f-4bea-a5e9-6d835378f5e3" name="Default Changelist" comment="增加异常处理信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ErrorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ErrorHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ErrorHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ErrorHandle.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/excelUtil/PoiRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excelUtil/PoiRead.class" afterDir="false" />
     </list>
@@ -30,8 +29,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ErrorHandle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+            <state relative-caret-position="230">
+              <caret line="110" column="9" lean-forward="true" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -42,11 +41,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="392" column="42" selection-start-line="392" selection-start-column="42" selection-end-line="392" selection-end-column="42" />
+            <state relative-caret-position="-6">
+              <caret line="719" column="40" lean-forward="true" selection-start-line="719" selection-start-column="40" selection-end-line="719" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#getHandlWay#0;class#PoiRead#0" />
               </folding>
             </state>
           </provider>
@@ -107,8 +105,8 @@
         <option value="$PROJECT_DIR$/src/main/java/excelUtil/WriteExcel.java" />
         <option value="$PROJECT_DIR$/src/main/java/excelUtil/ReadExcel.java" />
         <option value="$PROJECT_DIR$/src/main/java/excelUtil/PoiWrite.java" />
-        <option value="$PROJECT_DIR$/src/main/java/ErrorHandle.java" />
         <option value="$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java" />
+        <option value="$PROJECT_DIR$/src/main/java/ErrorHandle.java" />
       </list>
     </option>
   </component>
@@ -119,7 +117,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="2418" />
     <option name="y" value="184" />
     <option name="width" value="1280" />
@@ -142,14 +140,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1573831943097" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575275170690" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -279,6 +277,8 @@
       <workItem from="1573624430338" duration="2852000" />
       <workItem from="1573696069735" duration="6651000" />
       <workItem from="1573788690703" duration="4571000" />
+      <workItem from="1575163563337" duration="3769000" />
+      <workItem from="1575254654316" duration="3614000" />
     </task>
     <task id="LOCAL-00001" summary="增加异常处理信息">
       <created>1573625053385</created>
@@ -301,16 +301,31 @@
       <option name="project" value="LOCAL" />
       <updated>1573789386510</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="增加异常处理信息">
+      <created>1575267033876</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1575267033876</updated>
+    </task>
+    <task id="LOCAL-00005" summary="增加异常处理信息">
+      <created>1575267068373</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1575267068373</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="112207000" />
+    <option name="totallyTimeSpent" value="119590000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1066" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1913646" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.195629" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -320,7 +335,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289183" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289183" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.44481236" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.44481236" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -474,19 +489,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="392" column="42" selection-start-line="392" selection-start-column="42" selection-end-line="392" selection-end-column="42" />
+        <state relative-caret-position="-6">
+          <caret line="719" column="40" lean-forward="true" selection-start-line="719" selection-start-column="40" selection-end-line="719" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#getHandlWay#0;class#PoiRead#0" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/ErrorHandle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="25" column="49" lean-forward="true" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
+        <state relative-caret-position="230">
+          <caret line="110" column="9" lean-forward="true" selection-start-line="110" selection-start-column="9" selection-end-line="110" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
