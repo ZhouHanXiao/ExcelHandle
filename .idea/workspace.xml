@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54963862-527f-4bea-a5e9-6d835378f5e3" name="Default Changelist" comment="增加异常处理信息">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ErrorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ErrorHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ErrorHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ErrorHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/excelUtil/PoiRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excelUtil/PoiRead.class" afterDir="false" />
-    </list>
+    <list default="true" id="54963862-527f-4bea-a5e9-6d835378f5e3" name="Default Changelist" comment="增加异常处理信息" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -117,7 +112,7 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="2418" />
     <option name="y" value="184" />
     <option name="width" value="1280" />
@@ -147,7 +142,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575275170690" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575275491394" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -322,7 +317,7 @@
     <option name="totallyTimeSpent" value="119590000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="-8" width="1936" height="1066" extended-state="7" />
+    <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.195629" />
