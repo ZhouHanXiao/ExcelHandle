@@ -291,7 +291,7 @@ public class PoiRead
                                 ||cell.contains("SB-E-0003-调用接口失败")
                                 ||cell.contains("人员信息报送获取反馈失败，金三返回的异常信息为调用接口失败")
                         ){
-                            handlWay = "老赵，重发";
+                            handlWay = "郝战海，重发";
                         }else if(isCAError(cell)){
                             handlWay = getCAHandleMan(row,cell);
                         }
@@ -329,7 +329,7 @@ public class PoiRead
             }
             if(handlWay == "" && (bbmc.contains("扣缴所得税报告表")||bbmc.contains("个人所得税生产经营所得纳税申报表"))){
 //                System.out.println("handlWay = " + handlWay);
-                handlWay = "老赵，核实处理";
+                handlWay = "郝战海，核实处理";
             }
             if(row == 0){
                 rowList.add("处理方式");
@@ -389,11 +389,11 @@ public class PoiRead
                                 ||cell.contains("SB-E-0003-调用接口失败")
                                 ||cell.contains("人员信息报送获取反馈失败，金三返回的异常信息为调用接口失败")
                         ){
-                            handlWay = "老赵，重发";
+                            handlWay = "郝战海，重发";
                         }else if (isCAError(cell)){
                             handlWay = getCAHandleMan(row,cell);
                         }else {
-                            handlWay = "老赵，核实处理";
+                            handlWay = "郝战海，核实处理";
                         }
                     }else if(isCAError(cell)){
                         handlWay = getCAHandleMan(row,cell);
