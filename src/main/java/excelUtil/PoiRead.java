@@ -117,7 +117,10 @@ public class PoiRead
         String handlWay = "";
         if(isCAError(cell)){
             handlWay = getCAHandleMan(row, cell);
-        }else {
+        }else if (isHulve(cell)){
+            handlWay = "忽略";
+        }
+        else {
             handlWay = getErrorHanleWay(dq);
         }
         return handlWay;
@@ -314,8 +317,8 @@ public class PoiRead
                     }else if(isProgramerHandle(cell)){
                         handlWay = getErrorHanleWay(dq);
                     }else if(isProducterHandl(cell)){
-//                        handlWay = getHandlWay(dq);
-                        handlWay = getErrorHanleWay(dq);
+                        handlWay = getHandlWay(dq);
+//                        handlWay = getErrorHanleWay(dq);
                     }else if(cell.equals("")){
                         handlWay = "赵明明，核实处理";
                     }
@@ -401,8 +404,8 @@ public class PoiRead
                     ){
                         handlWay = "周晓阳，重发";
                     }else if(isProducterHandl(cell)){
-//                        handlWay = getHandlWay(dq);
-                        handlWay = getErrorHanleWay(dq);
+                        handlWay = getHandlWay(dq);
+//                        handlWay = getErrorHanleWay(dq);
                     }else if(isProgramerHandle(cell)){
                         handlWay = getErrorHanleWay(dq);
                     }else if(cell.equals("")){
@@ -452,8 +455,8 @@ public class PoiRead
                     }else if(isRepost(cell)){
                         handlWay = "赵明明，重发";
                     }else if(isProducterHandl(cell)){
-//                        handlWay = getHandlWay(dq);
-                        handlWay = getErrorHanleWay(dq);
+                        handlWay = getHandlWay(dq);
+//                        handlWay = getErrorHanleWay(dq);
                     }else if(isProgramerHandle(cell)){
                         handlWay = getErrorHanleWay(dq);
                     }else if(cell.equals("")){
@@ -495,6 +498,8 @@ public class PoiRead
             handlWay = "朱阿壮，核实处理";
         }else if(dq.contains("安徽")){
             handlWay = "杨鹏，核实处理";
+        }else if(dq.contains("云南")){
+            handlWay = "王峰，核实处理";
         }
         return handlWay;
     }
@@ -598,6 +603,7 @@ public class PoiRead
                 ||cell.contains("若是零申报请设为零申报，程序会填0.01")
                 ||cell.contains("未获取到进项信息")
                 ||cell.contains("与税费种认定中的【认定有效期】不符")
+                ||cell.contains("账号和密码错误，请重试")
         ){
             return true;
         }
