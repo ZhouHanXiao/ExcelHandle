@@ -181,14 +181,15 @@ public class PoiRead
 
     private static String getCAHandleMan(int row, String cell) {
         String handlWay;
-        if (row % 3 == 2) {
+        if (row % 3 == 1) {
             handlWay = "柏辰," + cell;
         } else {
-            if (row % 3 == 1) {
-                handlWay = "曹津梁," + cell;
-            } else {
-                handlWay = "刘耀阳," + cell;
-            }
+            handlWay = "曹津梁," + cell;
+//            if (row % 2 == 0) {
+//                handlWay = "曹津梁," + cell;
+//            } else {
+//                handlWay = "刘耀阳," + cell;
+//            }
         }
         if(cell.contains("延期")){
             handlWay = "霍利，核实处理";
@@ -279,25 +280,7 @@ public class PoiRead
                 if (col == 13){
 //                    System.out.println("cell = " + cell);
                     if(bbmc.contains("个人所得税生产经营所得纳税申报表") || bbmc.contains("扣缴所得税报告表")){
-                        if(cell.contains("密码将会锁定120分钟，请谨慎使用") || cell.contains("金三客户端返回的信息为8至20位") || cell.contains("当前还未设置密码")){
-                            handlWay = "刘娟，告知客户";
-                        }else if(cell.contains("金三客户端返回的信息为服务器通信异常")
-                                ||cell.contains("系统异常，请稍后重试")
-                                ||cell.contains("网络异常，未收到反馈信息")
-                                ||cell.contains("更新人员信息发生错误")
-                                ||cell.contains("正常工资薪金初始化失败")
-                                ||cell.contains("请按照税款申报进行申报")
-                                ||cell.contains("请稍后进行“人员报送”获取最新的反馈信")
-                                ||cell.contains("SB-E-0003-调用接口失败")
-                                ||cell.contains("人员信息报送获取反馈失败，金三返回的异常信息为调用接口失败")
-                        ){
-                            handlWay = "郝战海，重发";
-                        }else if(isCAError(cell)){
-                            handlWay = getCAHandleMan(row,cell);
-                        }
-                        else {
-                            handlWay = "郝战海，核实处理";
-                        }
+                        handlWay = grsdsHandleWay(cell,row);
                     }
                     if(handlWay != ""){
                         continue;
@@ -377,24 +360,7 @@ public class PoiRead
                 if (col == 12) {
                     if(bbmc.contains("个人所得税生产经营所得纳税申报表") || bbmc.contains("扣缴所得税报告表")
                     ){
-                        if(cell.contains("密码将会锁定120分钟，请谨慎使用") || cell.contains("金三客户端返回的信息为8至20位") || cell.contains("当前还未设置密码")){
-                            handlWay = "刘娟，告知客户";
-                        }else if(cell.contains("金三客户端返回的信息为服务器通信异常")
-                                ||cell.contains("系统异常，请稍后重试")
-                                ||cell.contains("网络异常，未收到反馈信息")
-                                ||cell.contains("更新人员信息发生错误")
-                                ||cell.contains("正常工资薪金初始化失败")
-                                ||cell.contains("请按照税款申报进行申报")
-                                ||cell.contains("请稍后进行“人员报送”获取最新的反馈信")
-                                ||cell.contains("SB-E-0003-调用接口失败")
-                                ||cell.contains("人员信息报送获取反馈失败，金三返回的异常信息为调用接口失败")
-                        ){
-                            handlWay = "郝战海，重发";
-                        }else if (isCAError(cell)){
-                            handlWay = getCAHandleMan(row,cell);
-                        }else {
-                            handlWay = "郝战海，核实处理";
-                        }
+                        handlWay = grsdsHandleWay(cell,row);
                     }else if(isCAError(cell)){
                         handlWay = getCAHandleMan(row,cell);
                     }else if(cell.contains("余额不足")
@@ -520,7 +486,7 @@ public class PoiRead
         }else if(dq.contains("浙江")){
             handlWay = "夏倩倩，核实处理";
         }else if(dq.contains("湖北")){
-            handlWay = "俞娣，核实处理";
+            handlWay = "李晶，核实处理";
         }else if(dq.contains("山东")){
             handlWay = "濮阳，核实处理";
         }else if(dq.contains("青岛")){
@@ -757,6 +723,11 @@ public class PoiRead
                 ||cell.contains("应税凭证不为空")
                 ||cell.contains("当前登录账号电子税务局显示企业名称")
                 ||cell.contains("三方协议账号为空")
+                || (cell.contains("系统值") && cell.contains("税局值"))
+                ||cell.contains("应等于主表")
+                ||cell.contains("额与唯易系统不一致")
+                || (cell.contains("税局") && cell.contains("本系统"))
+                ||cell.contains("项目及栏次开具增值税专用发票")
         ){
             return true;
         }
@@ -850,10 +821,44 @@ public class PoiRead
                 ||cell.contains("余额不足")
                 ||cell.contains("没有需要缴款的申报数据")
                 ||cell.contains("验证超过最大次数")
+                ||cell.contains("是否被拔出")
         ){
             return true;
         }
         return false;
     }
 
+    public static String grsdsHandleWay(String cell,int row){
+        String handlWay = "";
+        if(cell.contains("密码将会锁定120分钟，请谨慎使用")
+                || cell.contains("金三客户端返回的信息为8至20位")
+                || cell.contains("当前还未设置密码")
+                || cell.contains("系统已存在相同身份证件号码但姓名不同的身份信息")
+                || cell.contains("企业信息不存在或为无需下发的状态")
+                || cell.contains("扣缴单位无有效的税费种认定信息")
+                || cell.contains("不符合身份证号码的一般规则")
+                || cell.contains("系统检测到您更正了税款所属期为")
+                || cell.contains("未申报，请补报后，再申报本税款所属期")
+                || (cell.contains("证照类型：居民身份证证照号码") &&cell.contains("验证不通过"))
+        ){
+            handlWay = "刘娟，告知客户";
+        }else if(cell.contains("金三客户端返回的信息为服务器通信异常")
+                ||cell.contains("系统异常，请稍后重试")
+                ||cell.contains("网络异常，未收到反馈信息")
+                ||cell.contains("更新人员信息发生错误")
+                ||cell.contains("正常工资薪金初始化失败")
+                ||cell.contains("请按照税款申报进行申报")
+                ||cell.contains("请稍后进行“人员报送”获取最新的反馈信")
+                ||cell.contains("SB-E-0003-调用接口失败")
+                ||cell.contains("人员信息报送获取反馈失败，金三返回的异常信息为调用接口失败")
+        ){
+            handlWay = "郝战海，重发";
+        }else if(isCAError(cell)){
+            handlWay = getCAHandleMan(row,cell);
+        }
+        else {
+            handlWay = "郝战海，核实处理";
+        }
+        return handlWay;
+    }
 }
