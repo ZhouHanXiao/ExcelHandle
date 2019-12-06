@@ -181,7 +181,7 @@ public class PoiRead
 
     private static String getCAHandleMan(int row, String cell) {
         String handlWay;
-        if (row % 3 == 1) {
+        if (row % 2 == 1) {
             handlWay = "柏辰," + cell;
         } else {
             handlWay = "曹津梁," + cell;
@@ -280,7 +280,7 @@ public class PoiRead
                 if (col == 13){
 //                    System.out.println("cell = " + cell);
                     if(bbmc.contains("个人所得税生产经营所得纳税申报表") || bbmc.contains("扣缴所得税报告表")){
-                        handlWay = grsdsHandleWay(cell,row);
+                        handlWay = grsdsHandleWay(cell,row,dq);
                     }
                     if(handlWay != ""){
                         continue;
@@ -360,7 +360,7 @@ public class PoiRead
                 if (col == 12) {
                     if(bbmc.contains("个人所得税生产经营所得纳税申报表") || bbmc.contains("扣缴所得税报告表")
                     ){
-                        handlWay = grsdsHandleWay(cell,row);
+                        handlWay = grsdsHandleWay(cell,row,dq);
                     }else if(isCAError(cell)){
                         handlWay = getCAHandleMan(row,cell);
                     }else if(cell.contains("余额不足")
@@ -828,7 +828,7 @@ public class PoiRead
         return false;
     }
 
-    public static String grsdsHandleWay(String cell,int row){
+    public static String grsdsHandleWay(String cell,int row, String dq){
         String handlWay = "";
         if(cell.contains("密码将会锁定120分钟，请谨慎使用")
                 || cell.contains("金三客户端返回的信息为8至20位")
@@ -841,7 +841,7 @@ public class PoiRead
                 || cell.contains("未申报，请补报后，再申报本税款所属期")
                 || (cell.contains("证照类型：居民身份证证照号码") &&cell.contains("验证不通过"))
         ){
-            handlWay = "刘娟，告知客户";
+            handlWay = gzkhHandle(dq,row) + "，告知客户";
         }else if(cell.contains("金三客户端返回的信息为服务器通信异常")
                 ||cell.contains("系统异常，请稍后重试")
                 ||cell.contains("网络异常，未收到反馈信息")
@@ -860,5 +860,26 @@ public class PoiRead
             handlWay = "郝战海，核实处理";
         }
         return handlWay;
+    }
+
+    public static String gzkhHandle(String dq,int row){
+        String handleWay = "";
+        if("江苏".equals(dq)){
+            if(row%3 == 1){
+                handleWay = "徐苏";
+            }else if(row%3==2){
+                handleWay = "霍利";
+            }else{
+                handleWay = "刘娟";
+            }
+        }else if("山东".equals(dq)||"青岛".equals(dq)){
+            handleWay = "王杏";
+        }else if("武汉".equals(dq)){
+            handleWay = "李晶";
+        }
+        else{
+            handleWay = "刘娟";
+        }
+        return handleWay;
     }
 }
