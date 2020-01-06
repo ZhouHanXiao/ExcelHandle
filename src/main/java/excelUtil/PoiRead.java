@@ -3,9 +3,7 @@ package excelUtil;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Row;
@@ -22,6 +20,9 @@ import org.apache.poi.ss.usermodel.WorkbookFactory;
 public class PoiRead
 {
     public static final int MONTH = Integer.parseInt(new SimpleDateFormat("MM").format(new Date())) ;
+
+    public static final String FILE_SEP = System.getProperty("file.separator");
+    public static final String USER_DIR = System.getProperty("user.dir");
 
     public static void main(String[] args) throws IOException,
             InvalidFormatException
@@ -89,9 +90,10 @@ public class PoiRead
                 if(col == 0){
                     dq = cell;
                 }
-                if(errorFlag == "sbsjtb" && col == 9){
+                if(errorFlag == "sbsjtb" && col == 8){
                     bbmc = r.getCell(3).getStringCellValue();
-                    handlWay = sbsjtbread(cell,dq,row);
+                    String dzgs = r.getCell(1).getStringCellValue();
+                    handlWay = sbsjtbread(cell,dq,row,dzgs);
                 }
                 rowList.add(cell);
             }
@@ -113,8 +115,14 @@ public class PoiRead
      * @param row
      * @return
      */
-    private static String sbsjtbread(String cell, String dq,int row) {
+    private static String sbsjtbread(String cell, String dq,int row,String dzgs) {
         String handlWay = "";
+        if(isGzkh(cell,null,dq)){
+            handlWay = dzgs2handler(dzgs);
+        }
+        if(!handlWay.equals("")){
+            return handlWay;
+        }
         if(isCAError(cell)){
             handlWay = getCAHandleMan(row, cell);
         }else if (isHulve(cell)){
@@ -146,6 +154,7 @@ public class PoiRead
             List rowList = new ArrayList<String>();
             String handlWay = "";
             bbmc = r.getCell(3).getStringCellValue();
+            String dzgs = r.getCell(1).getStringCellValue();
             String dq = "";
             for (int col = 0; col < cols; col++){
                 String cell = "";
@@ -158,6 +167,10 @@ public class PoiRead
                     dq = cell;
                 }
                 if(col == 6){
+                    if(isGzkh(cell,null,dq)){
+                        handlWay = dzgs2handler(dzgs);
+                    }
+                    else
                     if(isCAError(cell)){
                         handlWay = getCAHandleMan(row, cell);
                     }else if(isHulve(cell)){
@@ -181,16 +194,17 @@ public class PoiRead
 
     private static String getCAHandleMan(int row, String cell) {
         String handlWay;
-        if (row % 2 == 1) {
-            handlWay = "柏辰," + cell;
-        } else {
-            handlWay = "曹津梁," + cell;
-//            if (row % 2 == 0) {
-//                handlWay = "曹津梁," + cell;
-//            } else {
-//                handlWay = "刘耀阳," + cell;
-//            }
-        }
+        handlWay = "刘耀阳," + cell;
+//        if (row % 2 == 0) {
+//            handlWay = "柏辰," + cell;
+//        } else {
+//            handlWay = "刘耀阳," + cell;
+////            if (row % 3 == 0) {
+////                handlWay = "曹津梁," + cell;
+////            } else {
+////                handlWay = "刘耀阳," + cell;
+////            }
+//        }
         if(cell.contains("延期")){
             handlWay = "霍利，核实处理";
         }
@@ -264,6 +278,7 @@ public class PoiRead
             String handlWay = "";
             String dq = "";
             bbmc = r.getCell(4).getStringCellValue();
+            String dzgs = r.getCell(1).getStringCellValue();
             for (int col = 0; col < cols; col++)
             {
                 String cell = "";
@@ -282,7 +297,10 @@ public class PoiRead
                     if(bbmc.contains("个人所得税生产经营所得纳税申报表") || bbmc.contains("扣缴所得税报告表")){
                         handlWay = grsdsHandleWay(cell,row,dq);
                     }
-                    if(handlWay != ""){
+                    if(isGzkh(cell,bbmc,dq)){
+                        handlWay = dzgs2handler(dzgs);
+                    }
+                    if(!handlWay.equals("")){
                         continue;
                     }
                     if(isRepost(cell)){
@@ -346,6 +364,7 @@ public class PoiRead
             String handlWay = "";
             String dq = "";
             bbmc = r.getCell(3).getStringCellValue();
+            String dzgs = r.getCell(1).getStringCellValue();
             for (int col = 0; col < cols; col++) {
                 String cell = "";
                 try{
@@ -361,7 +380,10 @@ public class PoiRead
                     if(bbmc.contains("个人所得税生产经营所得纳税申报表") || bbmc.contains("扣缴所得税报告表")
                     ){
                         handlWay = grsdsHandleWay(cell,row,dq);
-                    }else if(isCAError(cell)){
+                    }else if(isGzkh(cell,bbmc,dq)){
+                        handlWay = dzgs2handler(dzgs);
+                    }
+                    else if(isCAError(cell)){
                         handlWay = getCAHandleMan(row,cell);
                     }else if(cell.contains("余额不足")
                             ||cell.contains("没有需要缴款的申报数据")
@@ -369,7 +391,17 @@ public class PoiRead
                             ||cell.contains("页面空白")
                     ){
                         handlWay = "周晓阳，重发";
-                    }else if(isProducterHandl(cell)){
+                    }else if(cell.contains("三方协议不存在")
+                            ||cell.contains("您当前企业没有三方协议信息")
+                            ||cell.contains("未签订三方协议")
+                            ||cell.contains("您尚未签署三方协议")
+                            ||cell.contains("面无三方协议")
+                            ||cell.contains("三方协议未签约")
+                            ||cell.contains("三方协议未签约")
+                    ){
+                        handlWay = "霍利，与客户沟通处理";
+                    }
+                    else if(isProducterHandl(cell)){
                         handlWay = getHandlWay(dq);
 //                        handlWay = getErrorHanleWay(dq);
                     }else if(isProgramerHandle(cell)){
@@ -419,7 +451,7 @@ public class PoiRead
                     if(isCAError(cell)){
                         handlWay = getCAHandleMan(row,cell);
                     }else if(isRepost(cell)){
-                        handlWay = "赵明明，重发";
+                        handlWay = "周晓阳，重发";
                     }else if(isProducterHandl(cell)){
                         handlWay = getHandlWay(dq);
 //                        handlWay = getErrorHanleWay(dq);
@@ -493,6 +525,8 @@ public class PoiRead
             handlWay = "濮阳，核实处理";
         }else if(dq.contains("安徽")){
             handlWay = "周晓阳，核实处理";
+        }else if(dq.contains("云南")){
+            handlWay = "夏倩倩，核实处理";
         }
         return handlWay;
     }
@@ -533,9 +567,10 @@ public class PoiRead
                 ||cell.contains("与登陆成功后企业名称")
                 ||cell.contains("与登录成功后企业名称")
                 ||cell.contains("SB-E-0003-错误提示CertApi")
+                ||cell.contains("CA-E-0002-CA-E-0002-")
                 ||cell.contains("密码窗口无法关闭")
                 ||cell.contains("证书列表窗口无法关闭")
-                ||cell.contains("系统打开CA")
+//                ||cell.contains("系统打开CA")
         ){
             return true;
         }
@@ -559,7 +594,6 @@ public class PoiRead
                 ||cell.contains("信息0000")
                 ||cell.contains("社会信用代码或密码错误")
                 ||cell.contains("无法查询办税信息，请确认税务状态是否正常")
-                ||cell.contains("系统打开CA错误，请确认CA是否被拔")
                 ||cell.contains("信息纳税人识别号与密码不匹配")
                 ||cell.contains("信息无该纳税人的注册信息")
                 ||cell.contains("选择的账期已经结账")
@@ -570,6 +604,11 @@ public class PoiRead
                 ||cell.contains("未获取到进项信息")
                 ||cell.contains("与税费种认定中的【认定有效期】不符")
                 ||cell.contains("账号和密码错误，请重试")
+                ||cell.contains("没有缴费人信息或缴费人状态为“注销”")
+                ||cell.contains("请确认CA是否被拔出")
+                ||cell.contains("您没有进行管理员信息维护")
+                ||cell.contains("购买发票后再进行发票开具")
+                ||cell.contains("请至当地办税服务大厅办理增值税申报业务")
         ){
             return true;
         }
@@ -643,9 +682,7 @@ public class PoiRead
                 || cell.contains("未查询到基金费大类")
                 || cell.contains("密码错误，剩余")
                 || cell.contains("尚未申报")
-                || cell.contains("未找到已申报的申报表，请确认是否已申报成功")
                 || cell.contains("税费申报及缴纳界面没有查询到申报表")
-                || cell.contains("指标值不一致")
                 || cell.contains("应小于第")
                 || cell.contains("系统已自动发起申报和扣款操作，为避免您重复扣款")
                 || cell.contains("应该等于第")
@@ -662,6 +699,7 @@ public class PoiRead
                 || cell.contains("征期内未扣款请进入申报作废")
                 || cell.contains("]，本系统[")
                 || cell.contains("小于主税中")
+                || cell.contains("，唯易：")
                 || cell.contains("税局未找到减免性质")
                 || cell.contains("当前纳税人申报属期内不存在有符合条件的税（费）种认定信息")
                 || cell.contains("输入已缴额大于预缴总额")
@@ -709,6 +747,7 @@ public class PoiRead
                 ||cell.contains("无法实现网上缴款")
                 ||cell.contains("您没有密码")
                 ||cell.contains("扣款时发现税局系统未申报")
+                || (cell.contains("税局【") && cell.contains("唯易【"))
                 ||cell.contains("登记的电话地址与实际不符")
                 ||cell.contains("的密码已输错")
                 ||cell.contains("请先通过注册功能注册后")
@@ -728,6 +767,21 @@ public class PoiRead
                 ||cell.contains("额与唯易系统不一致")
                 || (cell.contains("税局") && cell.contains("本系统"))
                 ||cell.contains("项目及栏次开具增值税专用发票")
+                ||cell.contains("不允许零申报")
+                ||cell.contains("指标值比对不通过")
+                ||cell.contains("申报报表与税局不一致")
+                ||cell.contains("应大于零")
+                ||cell.contains("禁止进行收支交易")
+                ||cell.contains("指标值不一致")
+                ||cell.contains("个,唯易系统")
+                ||cell.contains("不能进行零申报")
+                ||cell.contains("可能是税种认定发生变更")
+                ||cell.contains("值大于零")
+                ||cell.contains("请检查CA设备是否插好")
+                ||cell.contains("当前纳税人不存在有")
+                ||cell.contains("纳税人无有效的税")
+                ||cell.contains("】校验出错")
+                ||cell.contains("保存数据返回信息：")
         ){
             return true;
         }
@@ -742,6 +796,7 @@ public class PoiRead
     public static boolean isProgramerHandle(String cell){
         if(cell.contains("程序异常")
                 || cell.contains("超时")
+                || cell.contains("]服务异常")
                 || cell.contains("执行申报任务时出现问题")
                 || cell.contains("填写失败")
                 || cell.contains("部分指标金额与税局页面不一致")
@@ -753,9 +808,12 @@ public class PoiRead
                 || cell.contains("系统内部异常，异常信息")
                 || cell.contains("未获取三方协议信息")
                 || cell.contains("任务处理异常")
+                || cell.contains("函数处理异常")
+                || cell.contains("sbzs-cjpt")
                 || cell.contains("正式提交申报时电子税务局反馈异常")
                 || cell.contains("HRESULT E_FAIL")
                 || cell.contains("其他错误")
+                || cell.contains("SB-E-0024-本月应申报界面没有查询到申报表")
                 || cell.contains("系统异常")
                 || cell.contains("获取税款所属期输入框失败")
                 || cell.contains("查询缴款信息时未查到信息")
@@ -767,15 +825,28 @@ public class PoiRead
                 || cell.contains("扣款失败系统缴款信息存在延迟")
                 || cell.contains("页面空白")
                 || cell.contains("】查找加载失败")
+                || cell.contains("等待报表主页加载完成失败")
                 || cell.contains("出现系统级异常")
                 || cell.contains("等待报表列表加载失败")
                 || cell.contains("未获取到异常原因")
                 || cell.contains("确认平台未签名")
                 || cell.contains("9999_JSON2")
+                || cell.contains("],URL[")
+                || cell.contains("堆栈：")
+                || cell.contains("查找报表失败")
+                || cell.contains("提示认证服务异常")
                 || cell.contains("税局页面打开失败，请稍后重新尝试")
                 || cell.contains("税局异常信息：未保存成功")
                 || cell.contains("获取验证码图片失败")
                 || cell.contains("进入首页面失败")
+                || cell.contains("未找到已申报的申报表，请确认是否已申报成功")
+                || cell.contains("CA登录选项卡获取失败")
+                || cell.contains("执行扣款任务时出现问题")
+                || cell.contains("信息提醒Connectionreset")
+                || cell.contains("信息提醒localhost")
+                || cell.contains("发生不可预知异常")
+                || cell.contains("界面加载失败")
+
         ){
             return true;
         }
@@ -797,7 +868,7 @@ public class PoiRead
                 || cell.contains("进入报税处理功能，并完成上报汇总，完成后再进行增值税申报。")
                 || cell.contains("您没有密码，请使用手机号登录以后进行设置")
                 || cell.contains("选择企业失败，请检查企业名称是否准确")
-                || cell.contains("SB-E-0024-本月应申报界面没有查询到申报表")
+
                 || cell.contains("无有效的纳税人登记信息，请联系电子税务局服务人员")
                 || cell.contains("HRESULT E_FAIL")
                 || cell.contains("请先完成增值税申报后再申报附加税")
@@ -830,12 +901,14 @@ public class PoiRead
 
     public static String grsdsHandleWay(String cell,int row, String dq){
         String handlWay = "";
+        if(cell.contains("扣缴单位无有效的税费种认定信息")){
+            handlWay = "忽略";
+        }else
         if(cell.contains("密码将会锁定120分钟，请谨慎使用")
                 || cell.contains("金三客户端返回的信息为8至20位")
                 || cell.contains("当前还未设置密码")
                 || cell.contains("系统已存在相同身份证件号码但姓名不同的身份信息")
                 || cell.contains("企业信息不存在或为无需下发的状态")
-                || cell.contains("扣缴单位无有效的税费种认定信息")
                 || cell.contains("不符合身份证号码的一般规则")
                 || cell.contains("系统检测到您更正了税款所属期为")
                 || cell.contains("未申报，请补报后，再申报本税款所属期")
@@ -866,7 +939,7 @@ public class PoiRead
         String handleWay = "";
         if("江苏".equals(dq)){
             if(row%3 == 1){
-                handleWay = "徐苏";
+                handleWay = "潘灵姹";
             }else if(row%3==2){
                 handleWay = "霍利";
             }else{
@@ -879,6 +952,53 @@ public class PoiRead
         }
         else{
             handleWay = "刘娟";
+        }
+        return handleWay;
+    }
+
+    public static boolean isGzkh(String cell,String dzbdmc,String dq){
+        if(cell.contains("请使用手机号登录以后进行设置")
+                || cell.contains("请先进行短信验证")
+                ||cell.contains("系统打开CA错误，请确认CA是否被拔")
+                || cell.contains("无有效的纳税人登记信息")
+                || cell.contains("请检查企业名称是否准确")
+                || cell.contains("开具红字增值税专用发票信息表")
+                || cell.contains("上期留抵税额_一般项目_本月数】数据不一致")
+                || cell.contains("不能为空，请至客户")
+                || cell.contains("您企业未按规定向税务机关报备财务")
+                || cell.contains("少自开普票数据")
+                || cell.contains("税局无法填写服务相关栏次，请确")
+                || cell.contains("税局无法填写货物相关栏次，请确认是否有对应税")
+                || cell.contains("报表未鉴定，不能够进行申报，请与主管税务机关联")
+                || cell.contains("税局反馈：申报失败,申报比对异常")
+        ){
+            return true;
+        }
+        if(dzbdmc != null && dq != null){
+            if("江苏".equals(dq) && "印花税纳税申报(报告)表".equals(dzbdmc) &&
+                    (
+                            cell.contains("合同_核定征收_核定比例】数据不一致，本系统【")
+                    )
+            ){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static String dzgs2handler(String dzgs){
+        String handleWay = "";
+        Map<String,String> map = new HashMap<String, String>();
+        Sheet sheet = getErrorSheet(USER_DIR + FILE_SEP + "代账公司信息.xls");
+        // 获得行数
+        int rows = sheet.getLastRowNum() + 1;
+        String bbmc =  "";
+        for (int row = 0; row < rows; row++){
+            Row r = sheet.getRow(row);
+            map.put(r.getCell(1).getStringCellValue(),r.getCell(2).getStringCellValue());
+        }
+        if(map.containsKey(dzgs)){
+            handleWay = map.get(dzgs) + ",告知客户";
         }
         return handleWay;
     }
