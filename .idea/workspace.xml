@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="54963862-527f-4bea-a5e9-6d835378f5e3" name="Default Changelist" comment="">
+    <list default="true" id="54963862-527f-4bea-a5e9-6d835378f5e3" name="Default Changelist" comment="增加异常处理信息">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ErrorHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ErrorHandle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ErrorHandle.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ErrorHandle.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/excelUtil/PoiRead.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/excelUtil/PoiRead.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -32,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ErrorHandle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="123" column="55" selection-start-line="123" selection-start-column="55" selection-end-line="123" selection-end-column="55" />
+            <state relative-caret-position="283">
+              <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,11 +40,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="943" column="21" selection-start-line="943" selection-start-column="21" selection-end-line="943" selection-end-column="21" />
+            <state relative-caret-position="1436">
+              <caret line="964" column="33" lean-forward="true" selection-start-line="964" selection-start-column="33" selection-end-line="964" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,10 +124,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2857" />
-    <option name="y" value="314" />
-    <option name="width" value="507" />
-    <option name="height" value="275" />
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1066" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -157,7 +153,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578557267588" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578559105333" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -308,7 +304,7 @@
       <workItem from="1578025228730" duration="11366000" />
       <workItem from="1578115192876" duration="7796000" />
       <workItem from="1578375250671" duration="5340000" />
-      <workItem from="1578456734988" duration="5436000" />
+      <workItem from="1578456734988" duration="6732000" />
     </task>
     <task id="LOCAL-00001" summary="增加异常处理信息">
       <created>1573625053385</created>
@@ -380,11 +376,18 @@
       <option name="project" value="LOCAL" />
       <updated>1578276608275</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="增加异常处理信息">
+      <created>1578557920392</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1578557920393</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="202950000" />
+    <option name="totallyTimeSpent" value="204246000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
@@ -519,20 +522,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ErrorHandle.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="123" column="55" selection-start-line="123" selection-start-column="55" selection-end-line="123" selection-end-column="55" />
+        <state relative-caret-position="1436">
+          <caret line="964" column="33" lean-forward="true" selection-start-line="964" selection-start-column="33" selection-end-line="964" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ErrorHandle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="943" column="21" selection-start-line="943" selection-start-column="21" selection-end-line="943" selection-end-column="21" />
+        <state relative-caret-position="283">
+          <caret line="127" lean-forward="true" selection-start-line="127" selection-end-line="127" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
