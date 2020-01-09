@@ -122,6 +122,7 @@ public class ErrorHandle {
     public static void sbsjtbHandle(String filePathDate,String filePathEnd){
         String oldFilePath = "D:\\异常信息\\" + filePathDate + "\\sbsjtberr.xls";
         List<List<String>> dataList = PoiRead.readByFlag(oldFilePath,"sbsjtb");
+
         PoiWrite.write(dataList,"D:\\异常信息\\" + filePathDate + "\\申报数据同步信息_失败_" + filePathEnd);
     }
 }
