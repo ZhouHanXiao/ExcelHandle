@@ -922,6 +922,9 @@ public class PoiRead
 
     public static String grsdsHandleWay(String cell,int row, String dq){
         String handlWay = "";
+        if(cell.contains("自然人电子税务局WEB端、个人所得税APP设置密码")){
+            handlWay = "郝战海，核实处理";
+        }else
         if(cell.contains("扣缴单位无有效的税费种认定信息")){
             handlWay = "忽略";
         }else
