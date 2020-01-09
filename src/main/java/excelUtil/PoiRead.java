@@ -194,17 +194,17 @@ public class PoiRead
 
     private static String getCAHandleMan(int row, String cell) {
         String handlWay;
-        handlWay = "刘耀阳," + cell;
-//        if (row % 2 == 0) {
-//            handlWay = "柏辰," + cell;
-//        } else {
-//            handlWay = "刘耀阳," + cell;
-////            if (row % 3 == 0) {
-////                handlWay = "曹津梁," + cell;
-////            } else {
-////                handlWay = "刘耀阳," + cell;
-////            }
-//        }
+//        handlWay = "刘耀阳," + cell;
+        if (row % 2 == 0) {
+            handlWay = "柏辰," + cell;
+        } else {
+            handlWay = "刘耀阳," + cell;
+//            if (row % 3 == 0) {
+//                handlWay = "曹津梁," + cell;i
+//            } else {
+//                handlWay = "刘耀阳," + cell;
+//            }
+        }
         if(cell.contains("延期")){
             handlWay = "霍利，核实处理";
         }
@@ -263,6 +263,7 @@ public class PoiRead
      * @return
      */
     public static List<List<String>> read(String filePath){
+        List<List<String>> dataList = PoiRead.readSberrTwo(filePath.replace("err","sberrtwo"));
         List<List<String>> retList = new ArrayList<List<String>>();
         Sheet sheet = getErrorSheet(filePath);
         // 获得行数
@@ -279,6 +280,8 @@ public class PoiRead
             String dq = "";
             bbmc = r.getCell(4).getStringCellValue();
             String dzgs = r.getCell(1).getStringCellValue();
+            String qy = r.getCell(2).getStringCellValue();
+            String nsqxmc = r.getCell(8).getStringCellValue();
             for (int col = 0; col < cols; col++)
             {
                 String cell = "";
@@ -318,7 +321,11 @@ public class PoiRead
                     }else if(isProgramerHandle(cell)){
                         handlWay = getErrorHanleWay(dq);
                     }else if(isProducterHandl(cell)){
-                        handlWay = getHandlWay(dq);
+                        if(cell.contains("请先申报上期财务报表")){
+                            handlWay = getHandlWay(dq) + ",排查是不是因为我们软件问题导致的上期未申报，若不是 告知客户";
+                        }else {
+                            handlWay = getHandlWay(dq);
+                        }
 //                        handlWay = getErrorHanleWay(dq);
                     }else if(cell.equals("")){
                         handlWay = "赵明明，核实处理";
@@ -336,6 +343,17 @@ public class PoiRead
                 rowList.add("处理方式");
                 rowList.add("处理结果");
                 rowList.add("备注");
+            }
+            boolean hasTwo = false;
+            for(List<String> strs : dataList ){
+                if(bbmc.equals(strs.get(3)) && dzgs.equals(strs.get(1)) && qy.equals(strs.get(2))
+                && nsqxmc.equals(strs.get(6))){
+                    hasTwo = true;
+                    break;
+                }
+            }
+            if(hasTwo){
+                continue;
             }
             rowList.add(handlWay);
             retList.add(rowList);
@@ -608,6 +626,7 @@ public class PoiRead
                 ||cell.contains("请确认CA是否被拔出")
                 ||cell.contains("您没有进行管理员信息维护")
                 ||cell.contains("购买发票后再进行发票开具")
+                ||cell.contains("纳税人登记信息不存在，请联系电子税务局服务人员")
                 ||cell.contains("请至当地办税服务大厅办理增值税申报业务")
         ){
             return true;
@@ -769,8 +788,10 @@ public class PoiRead
                 ||cell.contains("项目及栏次开具增值税专用发票")
                 ||cell.contains("不允许零申报")
                 ||cell.contains("指标值比对不通过")
+                ||cell.contains("且≤")
                 ||cell.contains("申报报表与税局不一致")
                 ||cell.contains("应大于零")
+                ||cell.contains("应该大于")
                 ||cell.contains("禁止进行收支交易")
                 ||cell.contains("指标值不一致")
                 ||cell.contains("个,唯易系统")
@@ -781,6 +802,7 @@ public class PoiRead
                 ||cell.contains("当前纳税人不存在有")
                 ||cell.contains("纳税人无有效的税")
                 ||cell.contains("】校验出错")
+                || cell.contains("请先申报上期财务报表")
                 ||cell.contains("保存数据返回信息：")
         ){
             return true;
@@ -868,7 +890,6 @@ public class PoiRead
                 || cell.contains("进入报税处理功能，并完成上报汇总，完成后再进行增值税申报。")
                 || cell.contains("您没有密码，请使用手机号登录以后进行设置")
                 || cell.contains("选择企业失败，请检查企业名称是否准确")
-
                 || cell.contains("无有效的纳税人登记信息，请联系电子税务局服务人员")
                 || cell.contains("HRESULT E_FAIL")
                 || cell.contains("请先完成增值税申报后再申报附加税")
@@ -889,10 +910,10 @@ public class PoiRead
                 || cell.contains("页面空白")
                 || cell.contains("新验证超过最大次数")
                 || cell.contains("未找到已申报的申报表，请确认是否已申报成功")
-                ||cell.contains("余额不足")
-                ||cell.contains("没有需要缴款的申报数据")
-                ||cell.contains("验证超过最大次数")
-                ||cell.contains("是否被拔出")
+                || cell.contains("余额不足")
+                || cell.contains("没有需要缴款的申报数据")
+                || cell.contains("验证超过最大次数")
+                || cell.contains("是否被拔出")
         ){
             return true;
         }
@@ -971,6 +992,7 @@ public class PoiRead
                 || cell.contains("税局无法填写货物相关栏次，请确认是否有对应税")
                 || cell.contains("报表未鉴定，不能够进行申报，请与主管税务机关联")
                 || cell.contains("税局反馈：申报失败,申报比对异常")
+                || cell.contains("请打开企业信息国地税页面配置CA信息")
         ){
             return true;
         }

@@ -21,7 +21,7 @@ public class ErrorHandle {
         sberrHandle(filePathDate,filePathEnd);
         sberrTwoHandle(filePathDate,filePathEnd);
         kkerrHandle(filePathDate,filePathEnd);
-        lbjcHandle(filePathDate,filePathEnd);
+//        lbjcHandle(filePathDate,filePathEnd);
 //        fpErrHandle(filePathDate,filePathEnd);//发票采集处理4种发票异常，如需分开处理，更改方法中的数组
 //        sbsjtbHandle(filePathDate,filePathEnd);
 //        kkzHandle(filePathDate,filePathEnd);

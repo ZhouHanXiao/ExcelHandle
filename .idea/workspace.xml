@@ -16,22 +16,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ErrorHandle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+            <state relative-caret-position="171">
+              <caret line="123" column="55" selection-start-line="123" selection-start-column="55" selection-end-line="123" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -39,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="158">
-              <caret line="185" column="16" lean-forward="true" selection-start-line="185" selection-start-column="16" selection-end-line="185" selection-end-column="16" />
+            <state relative-caret-position="260">
+              <caret line="943" column="21" selection-start-line="943" selection-start-column="21" selection-end-line="943" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -62,36 +67,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>申报清册界面没有查询到此申报表</find>
-      <find>税局反馈：调用系统服务出错</find>
-      <find>与登录成功后企业名称</find>
-      <find>应等于</find>
-      <find>个人所得税生产经营所得纳税申报表</find>
-      <find>0680</find>
-      <find>状态不正常</find>
-      <find>证书列表窗口无法关闭</find>
-      <find>密码窗口无法关闭</find>
-      <find>CA已经过期</find>
-      <find>系统打开CA</find>
-      <find>与税费种认定中的【认定有效期】不符</find>
-      <find>忽略</find>
-      <find>以下数据填写完毕后比对不一致</find>
-      <find>扣款失败系统缴款信息存在延迟</find>
-      <find>程序异常</find>
       <find>金三客户端返回的信息为服务器通信异常</find>
       <find>getCAHandleMan</find>
       <find>handlWay =</find>
       <find>system</find>
       <find>System.out</find>
       <find>CAHA</find>
-      <find>重发</find>
       <find>getHandlWay</find>
       <find>老赵</find>
       <find>cahandle</find>
       <find>以下指标填写完毕后比对不一致</find>
-      <find>hulv</find>
       <find>密码将会锁定120分钟，请谨慎使用</find>
       <find>getca</find>
+      <find>cahand</find>
+      <find>忽略</find>
+      <find>三方协议</find>
+      <find>扣缴单位无有效的税费种认定信息</find>
+      <find>重发</find>
+      <find>霍</find>
+      <find>无有效的纳税人登记信息</find>
+      <find>请确认CA是否被拔</find>
+      <find>getErrorSheet</find>
+      <find>指标值不一致！税局</find>
+      <find>CA登录选项卡获取失败</find>
+      <find>指标值不一致</find>
+      <find>处理异常</find>
+      <find>hulv</find>
+      <find>刘</find>
+      <find>ishu</find>
+      <find>isca</find>
+      <find>请先申报上期财务报表</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -123,10 +128,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="2418" />
-    <option name="y" value="184" />
-    <option name="width" value="1280" />
-    <option name="height" value="696" />
+    <option name="x" value="2857" />
+    <option name="y" value="314" />
+    <option name="width" value="507" />
+    <option name="height" value="275" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -134,8 +139,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,34 +146,18 @@
               <item name="ExcelHandle" type="b2602c69:ProjectViewProjectNode" />
               <item name="ExcelHandle" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="ExcelHandle" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExcelHandle" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExcelHandle" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExcelHandle" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="ExcelHandle" type="b2602c69:ProjectViewProjectNode" />
-              <item name="ExcelHandle" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1575546702740" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578557267588" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -304,7 +291,24 @@
       <workItem from="1575254654316" duration="8640000" />
       <workItem from="1575344224690" duration="4101000" />
       <workItem from="1575437712939" duration="2696000" />
-      <workItem from="1575516182263" duration="4417000" />
+      <workItem from="1575516182263" duration="5213000" />
+      <workItem from="1575610685952" duration="5563000" />
+      <workItem from="1575696897576" duration="2180000" />
+      <workItem from="1575857896423" duration="2429000" />
+      <workItem from="1575944998340" duration="3357000" />
+      <workItem from="1576041919253" duration="2348000" />
+      <workItem from="1576117473366" duration="3188000" />
+      <workItem from="1576215392709" duration="1203000" />
+      <workItem from="1576302444326" duration="2511000" />
+      <workItem from="1576460317453" duration="3092000" />
+      <workItem from="1577167473977" duration="1417000" />
+      <workItem from="1577270464710" duration="1555000" />
+      <workItem from="1577339822249" duration="630000" />
+      <workItem from="1577943446792" duration="6913000" />
+      <workItem from="1578025228730" duration="11366000" />
+      <workItem from="1578115192876" duration="7796000" />
+      <workItem from="1578375250671" duration="5340000" />
+      <workItem from="1578456734988" duration="5436000" />
     </task>
     <task id="LOCAL-00001" summary="增加异常处理信息">
       <created>1573625053385</created>
@@ -348,17 +352,44 @@
       <option name="project" value="LOCAL" />
       <updated>1575280517531</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="增加异常处理信息">
+      <created>1575546896186</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1575546896186</updated>
+    </task>
+    <task id="LOCAL-00008" summary="增加异常处理信息">
+      <created>1575612423480</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1575612423480</updated>
+    </task>
+    <task id="LOCAL-00009" summary="增加异常处理信息">
+      <created>1578276277827</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1578276277827</updated>
+    </task>
+    <task id="LOCAL-00010" summary="增加异常处理信息">
+      <created>1578276608275</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1578276608275</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="135830000" />
+    <option name="totallyTimeSpent" value="202950000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1066" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.20202559" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.20469083" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -368,13 +399,13 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3289183" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3289183" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.43046358" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49946696" visible="true" weight="0.43267107" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="9" sideWeight="0.50053304" side_tool="true" weight="0.43377483" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.3289183" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
       <window_info anchor="bottom" id="Version Control" order="12" weight="0.3289183" />
@@ -385,7 +416,7 @@
       <window_info anchor="right" id="Maven" order="3" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32995737" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
     </layout>
@@ -488,20 +519,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ErrorHandle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="185" column="16" lean-forward="true" selection-start-line="185" selection-start-column="16" selection-end-line="185" selection-end-column="16" />
+        <state relative-caret-position="171">
+          <caret line="123" column="55" selection-start-line="123" selection-start-column="55" selection-end-line="123" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ErrorHandle.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/excelUtil/PoiRead.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="55" column="7" lean-forward="true" selection-start-line="55" selection-start-column="7" selection-end-line="55" selection-end-column="7" />
+        <state relative-caret-position="260">
+          <caret line="943" column="21" selection-start-line="943" selection-start-column="21" selection-end-line="943" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
