@@ -18,13 +18,14 @@ public class ErrorHandle {
         String filePathEnd = new SimpleDateFormat("yyyy年MM月dd日_HH时").format(now);
         System.out.println(filePathDate);
 
-        sberrHandle(filePathDate,filePathEnd);
-        sberrTwoHandle(filePathDate,filePathEnd);
-        kkerrHandle(filePathDate,filePathEnd);
+//        sberrHandle(filePathDate,filePathEnd);
+//        sberrTwoHandle(filePathDate,filePathEnd);
+//        kkerrHandle(filePathDate,filePathEnd);
 //        lbjcHandle(filePathDate,filePathEnd);
 //        fpErrHandle(filePathDate,filePathEnd);//发票采集处理4种发票异常，如需分开处理，更改方法中的数组
 //        sbsjtbHandle(filePathDate,filePathEnd);
 //        kkzHandle(filePathDate,filePathEnd);
+        yccljgImport(filePathDate,filePathEnd,"02");
     }
 
     /**
@@ -89,6 +90,7 @@ public class ErrorHandle {
     public static void sberrTwoHandle(String filePathDate,String filePathEnd){
         String oldFilePath = "D:\\异常信息\\" + filePathDate + "\\sberrtwo.xls";
         List<List<String>> dataList = PoiRead.readSberrTwo(oldFilePath);
+        MyBatisHandle.handleExcelData(dataList,"02",2020,1);
         PoiWrite.write(dataList,"D:\\异常信息\\" + filePathDate + "\\申报情况监控信息(当天解决—申报状态为申报成功)_" + filePathEnd);
     }
 
@@ -124,5 +126,17 @@ public class ErrorHandle {
         List<List<String>> dataList = PoiRead.readByFlag(oldFilePath,"sbsjtb");
 
         PoiWrite.write(dataList,"D:\\异常信息\\" + filePathDate + "\\申报数据同步信息_失败_" + filePathEnd);
+    }
+
+
+    /**
+     *  异常处理结果导入数据库
+     * @param filePathDate
+     * @param filePathEnd
+     * @param yclx 异常类型：01-申报异常；02-申报两次以上异常；03-扣款异常；04-数据同步异常；05-发票异常；08-漏报检查异常
+     */
+    public static void yccljgImport(String filePathDate,String filePathEnd,String yclx){
+        String filePath = "D:\\异常信息\\" + filePathDate + "\\yccljg.xls";
+        MyBatisHandle.importExcel(filePath,"02",2020,1);
     }
 }
